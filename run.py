@@ -34,8 +34,8 @@ class FaceDataset(Dataset):
         id1 = self.label_set['id1'][i]
         id2 = self.label_set['id2'][i]
         target = np.array([self.label_set['target'][i]]).astype(np.float32)
-        Image1 = Image.open('/store/pa2/'+self.index_set[1][int(id1)-1]).convert('L')
-        Image2 = Image.open('/store/pa2/'+self.index_set[1][int(id2)-1]).convert('L')
+        Image1 = Image.open('/store/pa2/'+self.index_set[1][int(id1)-1][5:]).convert('L')
+        Image2 = Image.open('/store/pa2/'+self.index_set[1][int(id2)-1][5:]).convert('L')
         Image1 = self.transform(Image1)
         Image2 = self.transform(Image2)
         return Image1, Image2, target
